@@ -7,6 +7,8 @@ const https = require("https");
 
 require("dotenv").config();
 
+const PORT = process.env.PORT || 3030;
+
 const app = express();
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -71,12 +73,10 @@ app.post("/failure", function(req, res){
     res.redirect("/");
 })
 
-app.listen(3000, function(){
-    console.log("server started on port 3000");
-})
+// app.listen(3000, function(){
+//     console.log("server started on port 3000");
+// })
 
-// API Key
-// 0c0cf224dd5e2e7c17a592974954ac3d-us21
-
-// list Id
-// 82ce370d88
+app.listen(PORT, () => {
+  console.log(`server started on port ${PORT}`);
+});
